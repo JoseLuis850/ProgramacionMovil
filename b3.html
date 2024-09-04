@@ -6,7 +6,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <title>Práctica 3</title>
   <style>
-    /* Ajustes para el enlace y el botón */
     .no-underline {
       text-decoration: none;
       color: black;
@@ -21,79 +20,81 @@
       background-color: black;
       color: white;
     }
-    /* Ajustes generales para centrar el contenido */
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-content a img {
-      width: 40px;
-    }
-    .header-content .logo-central img {
-      width: 150px;
-    }
     .navbar {
-      background-color: red; /* Fondo rojo para el navbar */
+      background-color: red; 
     }
     .navbar-nav .nav-link {
-      color: white !important; /* Texto blanco en el navbar */
+      color: white !important;
     }
     .navbar-nav .nav-link.active {
-      font-weight: bold; /* Texto en negrita para el enlace activo */
+      font-weight: bold;
+    }
+    .btn-outline-danger.custom-hover:hover {
+      background-color: black;
+      color: white;
+    }
+    @media (max-width: 768px) {
+      .order-1 {
+        order: 2 !important;
+      }
+      .order-2 {
+        order: 1 !important;
+      }
+      .order-3 {
+        order: 3 !important;
+      }
+      .text-center {
+        text-align: center !important;
+      }
+      .d-flex.flex-md-row > * {
+        margin-left: 0 !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row py-3">
-      <div class="col-12">
-        <div class="header-content">
-          <!-- Logo izquierdo -->
-          <a href="#" class="no-underline d-flex align-items-center">
-            <img src="ImagenesB3/radio-marca-logo.png" alt="Logo Radio Marca" />
+      <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <!-- Logo central en dispositivos móviles -->
+        <div class="order-2 order-md-2 text-center">
+          <a href="#">
+            <img src="ImagenesB3/marca-mx-logo.png" style="width: 150px" />
+          </a>
+        </div>
+  
+        <!-- Logo izquierdo -->
+        <div class="order-3 order-md-1 text-center text-md-start mt-3 mt-md-0">
+          <a href="#" class="no-underline">
+            <img src="ImagenesB3/radio-marca-logo.png" style="width: 40px" />
             <strong class="ms-2">Radio Marca</strong>
           </a>
-
-          <!-- Logo central -->
-          <a href="#" class="logo-central">
-            <img src="ImagenesB3/marca-mx-logo.png" alt="Logo Marca MX" />
-          </a>
-
-          <!-- Botones derechos -->
-          <div class="d-flex align-items-center">
-            <button class="btn btn-outline-secondary edition-selector__btn dropdown-toggle me-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" id="selected-flag" alt="Bandera MX" />
-              <span id="selected-language">MX</span>
-            </button>
-            <ul class="dropdown-menu border-secondary" aria-labelledby="dropdownMenuButton">
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('ES', 'ImagenesB3/es-flag.png')">
-                  <img src="ImagenesB3/es-flag.png" style="width: 20px; height: auto" class="me-2" alt="Bandera ES" />ES: España
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('EN', 'ImagenesB3/global-flag.png')">
-                  <img src="ImagenesB3/global-flag.png" style="width: 20px; height: auto" class="me-2" alt="Bandera EN" />EN: English
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('MX', 'ImagenesB3/mx-flag.jpg')">
-                  <img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" class="me-2" alt="Bandera MX" />MX: México
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('US', 'ImagenesB3/us-flag.jpg')">
-                  <img src="ImagenesB3/us-flag.jpg" style="width: 20px; height: auto" class="me-2" alt="Bandera US" />US: USA
-                </a>
-              </li>
-            </ul>
-            <button type="button" class="btn btn-outline-secondary custom-hover">Iniciar Sesión</button>
-          </div>
+        </div>
+  
+        <!-- Botones derechos -->
+        <div class="order-1 order-md-3 d-flex flex-column flex-md-row justify-content-center align-items-center mt-3 mt-md-0 text-center text-md-end">
+          <button class="btn btn-outline-secondary edition-selector__btn dropdown-toggle me-0 me-md-2 mb-2 mb-md-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" id="selected-flag" />
+            <span id="selected-language">MX</span>
+          </button>
+          <ul class="dropdown-menu border-secondary" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('ES', 'ImagenesB3/es-flag.png')"><img src="ImagenesB3/es-flag.png" style="width: 20px; height: auto" class="me-2" />ES: España</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('EN', 'ImagenesB3/global-flag.png')"><img src="ImagenesB3/global-flag.png" style="width: 20px; height: auto" class="me-2" />EN: English</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('MX', 'ImagenesB3/mx-flag.jpg')"><img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" class="me-2" />MX: México</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('US', 'ImagenesB3/us-flag.jpg')"><img src="ImagenesB3/us-flag.jpg" style="width: 20px; height: auto" class="me-2" />US: USA</a></li>
+          </ul>
+          <button type="button" class="btn btn-outline-danger custom-hover border-secondary">Iniciar Sesión</button>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function selectLanguage(languageCode, flagSrc) {
+      document.getElementById("selected-language").textContent = languageCode;
+      document.getElementById("selected-flag").src = flagSrc;
+    }
+  </script>
 
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
@@ -106,37 +107,30 @@
             <a class="nav-link active" aria-current="page" href="#">Futbol</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Motor</a>
+            <a class="nav-link active" href="#">Motor</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Boxeo</a>
+            <a class="nav-link active" href="#">Boxeo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">NFL</a>
+            <a class="nav-link active" href="#">NFL</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Otros deportes</a>
+            <a class="nav-link active" href="#">Otros deportes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Actualidad</a>
+            <a class="nav-link active" href="#">Actualidad</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Últimas noticias</a>
+            <a class="nav-link active" href="#">Últimas noticias</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Más+</a>
+            <a class="nav-link active" href="#">Más+</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
-  <script>
-    function selectLanguage(languageCode, flagSrc) {
-      document.getElementById("selected-language").textContent = languageCode;
-      document.getElementById("selected-flag").src = flagSrc;
-    }
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
