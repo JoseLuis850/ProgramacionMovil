@@ -50,105 +50,165 @@
       margin-top: 5px;
       margin-bottom: 5px;
     }
+
+    /* Estilos para mantener el logo y navbar fijos */
+    .sticky-logo {
+      display: none;
+    }
+
+    @media (max-width: 767.98px) {
+      .logo-central {
+        display: none;
+      }
+      .sticky-logo {
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="row py-3">
+    <div class="row py-0 py-md-3">
       <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center position-relative">
-
-        <!-- Logo izquierdo -->
-        <div class="order-3 order-md-1 text-md-start mt-3 mt-md-0 d-flex align-items-center">
-          <a href="#" class="no-underline d-flex align-items-center ms-3">
+        
+        <!-- Logo izquierdo - Radio MARCA (oculto en dispositivos móviles) -->
+        <div class="order-3 order-md-1 text-md-start mt-md-0 d-flex align-items-center d-none d-md-flex">
+          <a href="#" class="no-underline d-flex align-items-center ms-md-3">
             <img src="ImagenesB3/radio-marca-logo.png" style="width: 40px" />
             <div class="ms-2 d-flex flex-column">
               <strong style="font-size: 0.8rem;">Radio MARCA</strong>
             </div>
           </a>
         </div>
-        
-        <!-- Logo central-->
-        <div class="order-1 order-md-2 logo-central d-flex justify-content-center">
+  
+        <!-- Logo central visible en pantallas medianas en adelante -->
+        <div class="order-1 order-md-2 logo-central d-none d-md-flex justify-content-center">
           <a href="#">
             <img src="ImagenesB3/marca-mx-logo.png" />
           </a>
         </div>
   
-        <!-- Botones derechos -->
-        <div class="order-2 order-md-3 d-flex flex-column flex-md-row justify-content-center align-items-center mt-3 mt-md-0">
-          <button class="btn btn-outline-secondary edition-selector__btn dropdown-toggle me-0 me-md-2 mb-2 mb-md-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" id="selected-flag" />
-            <span id="selected-language">MX</span>
-          </button>
-          <ul class="dropdown-menu border-secondary" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('ES', 'ImagenesB3/es-flag.png')"><img src="ImagenesB3/es-flag.png" style="width: 20px; height: auto" class="me-2" />ES: España</a></li>
-            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('EN', 'ImagenesB3/global-flag.png')"><img src="ImagenesB3/global-flag.png" style="width: 20px; height: auto" class="me-2" />EN: English</a></li>
-            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('MX', 'ImagenesB3/mx-flag.jpg')"><img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" class="me-2" />MX: México</a></li>
-            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('US', 'ImagenesB3/us-flag.jpg')"><img src="ImagenesB3/us-flag.jpg" style="width: 20px; height: auto" class="me-2" />US: USA</a></li>
-          </ul>
-          <button type="button" class="btn btn-outline-danger custom-hover border-secondary">Iniciar Sesión</button>
-        </div>
+        <!-- Botones derechos (ocultos en dispositivos móviles) -->
+<div class="order-2 order-md-3 d-none d-md-flex flex-column flex-md-row justify-content-center align-items-center mt-md-0">
+  <button class="btn btn-outline-secondary edition-selector__btn dropdown-toggle me-0 me-md-2 mb-md-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" id="selected-flag" />
+    <span id="selected-language">MX</span>
+  </button>
+  <ul class="dropdown-menu border-secondary" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('ES', 'ImagenesB3/es-flag.png')"><img src="ImagenesB3/es-flag.png" style="width: 20px; height: auto" class="me-2" />ES: España</a></li>
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('EN', 'ImagenesB3/global-flag.png')"><img src="ImagenesB3/global-flag.png" style="width: 20px; height: auto" class="me-2" />EN: English</a></li>
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('MX', 'ImagenesB3/mx-flag.jpg')"><img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" class="me-2" />MX: México</a></li>
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('US', 'ImagenesB3/us-flag.jpg')"><img src="ImagenesB3/us-flag.jpg" style="width: 20px; height: auto" class="me-2" />US: USA</a></li>
+  </ul>
+
+  <a href="#" class="btn btn-outline-danger custom-hover ms-md-2">Iniciar Sesión</a>
+</div>
+
       </div>
     </div>
   </div>
   
-
-  <script>
-    function selectLanguage(languageCode, flagSrc) {
-      document.getElementById("selected-language").textContent = languageCode;
-      document.getElementById("selected-flag").src = flagSrc;
-    }
-  </script>
-
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
+   <!-- Navbar con sticky top para dispositivos móviles -->
+   <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid d-flex align-items-center">
+      
+      <!-- Logo que aparece solo en móviles -->
+      <div class="sticky-logo">
+        <a href="#">
+          <img src="ImagenesB3/marca-mx-logo.png" style="width: 120px;" alt="Logo central">
+        </a>
+      </div>
+  
+      <!-- Botón del menú (toggler) -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-     </button>
+      </button>
+  
+      <!-- Menú desplegable -->
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-
-       <ul class="navbar-nav">
-         <li class="nav-item me-2 dropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item me-2 dropdown">
             <a class="nav-link active d-flex align-items-center" href="#">Fútbol 
               <i class="bi bi-chevron-down ms-1"></i>
             </a>
-         </li>
-         <li class="nav-item me-2">
+          </li>
+          <li class="nav-item me-2">
             <a class="nav-link active d-flex align-items-center" href="#">Motor
               <i class="bi bi-chevron-down ms-1"></i>
             </a>
-         </li>
+          </li>
           <li class="nav-item me-2">
-            <a class="nav-link active d-flex align-items-center" href="#">Boxeo
-            </a>
-         </li>
+            <a class="nav-link active d-flex align-items-center" href="#">Boxeo</a>
+          </li>
           <li class="nav-item me-2">
             <a class="nav-link active d-flex align-items-center" href="#">NFL
               <i class="bi bi-chevron-down ms-1"></i>
-           </a>
-         </li>
+            </a>
+          </li>
           <li class="nav-item me-2">
             <a class="nav-link active d-flex align-items-center" href="#">Otros deportes
               <i class="bi bi-chevron-down ms-1"></i>
             </a>
-         </li>
-          <li class="nav-item me-2">
-            <a class="nav-link active d-flex align-items-center" href="#">Actualidad
-            </a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link active d-flex align-items-center" href="#">Últimas noticias
-            </a>
+            <a class="nav-link active d-flex align-items-center" href="#">Actualidad</a>
           </li>
           <li class="nav-item me-2">
-           <a class="nav-link active d-flex align-items-center" href="#">Más
+            <a class="nav-link active d-flex align-items-center" href="#">Últimas noticias</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link active d-flex align-items-center" href="#">Más
               <i class="bi bi-plus ms-1"></i>
             </a>
+          </li>
+          
+          <!-- Enlaces para móviles (ocultos en pantallas medianas en adelante) -->
+          <li class="nav-item d-flex align-items-center d-md-none">
+            <a class="nav-link active" href="#">Radio MARCA</a>
+          </li>
+        
+        <!-- Dropdown para selección de idioma (visible solo en móviles) -->
+<li class="nav-item d-md-none dropdown">
+  <a class="nav-link active dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Idioma:
+    <img src="ImagenesB3/mx-flag.jpg" id="selected-flag-mobile" style="width: 20px; height: auto; margin-left: 8px;" />
+    <span id="selected-language-mobile" class="ms-2">MX</span>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage2('ES', 'ImagenesB3/es-flag.png', 'ES')"><img src="ImagenesB3/es-flag.png" style="width: 20px; height: auto" class="me-2" />ES: España</a></li>
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage2('EN', 'ImagenesB3/global-flag.png', 'EN')"><img src="ImagenesB3/global-flag.png" style="width: 20px; height: auto" class="me-2" />EN: English</a></li>
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage2('MX', 'ImagenesB3/mx-flag.jpg', 'MX')"><img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" class="me-2" />MX: México</a></li>
+    <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage2('US', 'ImagenesB3/us-flag.jpg', 'US')"><img src="ImagenesB3/us-flag.jpg" style="width: 20px; height: auto" class="me-2" />US: USA</a></li>
+  </ul>
+</li>
+
+<script>
+  // Función para cambiar el idioma en el dropdown de escritorio
+   function selectLanguage(languageCode, flagSrc) {
+      document.getElementById("selected-language").textContent = languageCode;
+      document.getElementById("selected-flag").src = flagSrc;
+    }
+
+    function selectLanguage2(languageCode, flagUrl, languageText) {
+  // Actualizar la bandera y el texto del idioma en el dropdown para móviles
+  document.getElementById('selected-flag-mobile').src = flagUrl;
+  document.getElementById('selected-language-mobile').textContent = languageText;
+
+  
+}
+
+</script>
+
+          <li class="nav-item d-md-none">
+            <a class="nav-link active" href="#">Iniciar Sesión</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  
 
 <div class="container-fluid py-2" style="background-color: #eceff4;">
   <div class="row justify-content-center">
