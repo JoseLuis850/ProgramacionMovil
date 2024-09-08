@@ -41,39 +41,75 @@
 				    }
 				
 				    @media (min-width: 768px) {
-				      .navbar-nav .nav-link {
-				        width: auto;
-				      }
-		          .sticky-logo {
-				        display: block;
-				        text-align: center;
-				        margin: 10px 0;
-		            background-color: white;
-				      }
+				    	.navbar-nav .nav-link {
+				    		width: auto;
+				      	}
+		          		.sticky-logo {
+				        	display: block;
+				        	text-align: center;
+				        	margin: 10px 0;
+		            		background-color: white;
+				      	}
+						.sticky-logo2 {
+				        	display: block;
+				        	text-align: center;
+				        	margin: 10px 0;
+				      	}
 				    }
 				    .logo-container img {
 				      width: 30px;
 				      margin-top: 5px;
 				      margin-bottom: 5px;
 				    }
-				
 				    /* Estilos para mantener el logo y navbar fijos */
 				    .sticky-logo {
 				      display: none;
 				    }
-		        
-				
-				    @media (max-width: 768px) {
-				      .sticky-logo {
-				        display: block;
-				        text-align: center;
-		            background-color: white;
-		            padding: 10px;
-				      }
-		          
+					.sticky-logo2 {
+				      display: none;
 				    }
-				
-		
+				    @media (max-width: 768px) {
+				    	.sticky-logo {
+				        	display: block;
+				        	text-align: center;
+		            		background-color: white;
+		            		padding: 15px;
+				      	}
+						  .sticky-logo2 {
+				        	display: block;
+				        	text-align: center;
+		            		padding: 10px;
+				      	}
+				    }
+					.menu-text {
+						color: #fff;
+  						font-size: 12px;
+  						text-align: center;
+						opacity: 1;
+					}
+					.navbar-toggler-icon {
+  						background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+					}
+					.underline-on-hover {
+    					text-decoration: none; /* Asegúrate de que el subrayado predeterminado esté desactivado */
+    					position: relative;
+					}
+					.underline-on-hover::after {
+    					content: '';
+    					position: absolute;
+    					left: 0;
+    					bottom: 0;
+						width: 100%;
+						height: 2px; /* Altura de la línea subrayada */
+						background-color: white; /* Color de la línea subrayada */
+						transform: scaleX(0);
+						transform-origin: bottom right;
+						transition: transform 0.5s ease;
+					}
+					.underline-on-hover:hover::after {
+						transform: scaleX(1);
+						transform-origin: bottom left;
+					}
 	</style>
 </head>
 <body>
@@ -101,9 +137,9 @@
 				<!-- Botones derechos (ocultos en dispositivos móviles) -->
 				<div class="order-2 order-md-3 d-none d-md-flex flex-column flex-md-row justify-content-center align-items-center mt-md-0">
 					<button class="btn btn-outline-secondary edition-selector__btn dropdown-toggle me-0 me-md-2 mb-md-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" id="selected-flag" />
-              <span id="selected-language">MX</span>
-          </button>
+            			<img src="ImagenesB3/mx-flag.jpg" style="width: 20px; height: auto" id="selected-flag" />
+              			<span id="selected-language">MX</span>
+          			</button>
 					<ul class="dropdown-menu border-secondary" aria-labelledby="dropdownMenuButton">
 						<li>
 							<a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('ES', 'ImagenesB3/es-flag.png')"><img src="ImagenesB3/es-flag.png" style="width: 20px; height: auto" class="me-2" />ES: España</a>
@@ -118,7 +154,6 @@
 							<a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage('US', 'ImagenesB3/us-flag.jpg')"><img src="ImagenesB3/us-flag.jpg" style="width: 20px; height: auto" class="me-2" />US: USA</a>
 						</li>
 					</ul>
-
 					<a href="#" class="btn btn-outline-danger custom-hover ms-md-2">Iniciar Sesión</a>
 				</div>
 			</div>
@@ -127,7 +162,7 @@
 
 	<!-- Navbar con sticky top para dispositivos móviles -->
 	<nav class="navbar navbar-expand-lg navbar-dark">
-		<div class="container-fluid d-flex align-items-center">
+		<div class="container-fluid d-flex">
 
 			<!-- Logo central que aparece solo en móviles -->
 			<div class="sticky-logo">
@@ -136,61 +171,61 @@
 				</a>
 			</div>
 
+			<!-- Logo a la derecha del toggler, visible solo en móviles -->
+			<a class="sticky-logo2 ms-auto" href="#">
+				<img src="ImagenesB3/radio-marca-logo.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
+			</a>
+
 			<!-- Botón del menú (toggler) -->
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    			<span class="navbar-toggler-icon"></span>
+    			<span class="menu-text d-block">Menú</span>
+			</button>
 
 			<!-- Menú desplegable -->
 			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item me-2 dropdown">
 						<a class="nav-link active d-flex align-items-center" href="#">Fútbol 
-              <i class="bi bi-chevron-down ms-1"></i>
-            </a>
+              				<i class="bi bi-chevron-down ms-1"></i>
+            			</a>
 					</li>
 					<li class="nav-item me-2">
 						<a class="nav-link active d-flex align-items-center" href="#">Motor
-              <i class="bi bi-chevron-down ms-1"></i>
-            </a>
+              				<i class="bi bi-chevron-down ms-1"></i>
+            			</a>
 					</li>
 					<li class="nav-item me-2">
 						<a class="nav-link active d-flex align-items-center" href="#">Boxeo</a>
 					</li>
 					<li class="nav-item me-2">
 						<a class="nav-link active d-flex align-items-center" href="#">NFL
-              <i class="bi bi-chevron-down ms-1"></i>
-            </a>
+             				 <i class="bi bi-chevron-down ms-1"></i>
+            			</a>
 					</li>
 					<li class="nav-item me-2">
 						<a class="nav-link active d-flex align-items-center" href="#">Otros deportes
-              <i class="bi bi-chevron-down ms-1"></i>
-            </a>
+             				<i class="bi bi-chevron-down ms-1"></i>
+            			</a>
 					</li>
 					<li class="nav-item me-2">
-						<a class="nav-link active d-flex align-items-center" href="#">Actualidad</a>
+						<a class="nav-link active d-flex align-items-center underline-on-hover" href="#">Actualidad</a>
 					</li>
 					<li class="nav-item me-2">
-						<a class="nav-link active d-flex align-items-center" href="#">Últimas noticias</a>
+						<a class="nav-link active d-flex align-items-center underline-on-hover" href="#">Últimas noticias</a>
 					</li>
 					<li class="nav-item me-2">
 						<a class="nav-link active d-flex align-items-center" href="#">Más
-              <i class="bi bi-plus ms-1"></i>
-            </a>
+              				<i class="bi bi-plus ms-1"></i>
+            			</a>
 					</li>
-
-					<!-- Enlaces para móviles (ocultos en pantallas medianas en adelante) -->
-					<li class="nav-item d-flex align-items-center d-md-none">
-						<a class="nav-link active" href="#">Radio MARCA</a>
-					</li>
-
 					<!-- Dropdown para selección de idioma (visible solo en móviles) -->
 					<li class="nav-item d-md-none dropdown">
 						<a class="nav-link active dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Idioma:
-              <img src="ImagenesB3/mx-flag.jpg" id="selected-flag-mobile" style="width: 20px; height: auto; margin-left: 8px;" />
-                <span id="selected-language-mobile" class="ms-2">MX</span>
-            </a>
+              			Edición:
+              			<img src="ImagenesB3/mx-flag.jpg" id="selected-flag-mobile" style="width: 20px; height: auto; margin-left: 8px;" />
+                		<span id="selected-language-mobile" class="ms-2">MX</span>
+            			</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<li>
 								<a class="dropdown-item d-flex align-items-center" href="#" onclick="selectLanguage2('ES', 'ImagenesB3/es-flag.png', 'ES')"><img src="ImagenesB3/es-flag.png" style="width: 20px; height: auto" class="me-2" />ES: España</a>
@@ -207,7 +242,7 @@
 						</ul>
 					</li>
 					<li class="nav-item d-md-none">
-						<a class="nav-link active" href="#">Iniciar Sesión</a>
+						<a class="nav-link" href="#">Iniciar Sesión</a>
 					</li>
 				</ul>
 			</div>
